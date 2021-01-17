@@ -28,7 +28,7 @@ import PySimpleGUI as sg
 #         break
 
 # Define the window's contents
-layout = [[sg.Text("What's your name?")],
+layout = [[sg.Text("Distance Reading")],
           [sg.Input(key='-INPUT-')],
           [sg.Text(size=(40,1), key='-OUTPUT-')],
           [sg.Button('Ok'), sg.Button('Quit')],
@@ -48,18 +48,21 @@ while True:
     # See if user wants to quit or window was closed
     if event == sg.WINDOW_CLOSED or event == 'Quit':
         break
-    if event == 'Ok':
-        window.Element("graph").delete()
+    # if event == 'Ok':
+    #     window.Element("graph").delete()
 
     # Output a message to the window
-    window['-OUTPUT-'].update('Hello ' + values['-INPUT-'] + "! Thanks for trying PySimpleGUI")
     graph = window.Element("graph")
     if values['-INPUT-'] == "8":
         graph.DrawImage(filename="foo.png", location=(0, 400))
+        #window['-OUTPUT-'].update('Hello ' + values['-INPUT-'] + "! Object is far")
+        window['-OUTPUT-'].update("Object is far")
     elif values['-INPUT-'] == "4":
         graph.DrawImage(filename="foo1.png", location=(0, 400))
+        window['-OUTPUT-'].update("Object is close")
     else:
         graph.DrawImage(filename="foo2.png", location=(0, 400))
+        window['-OUTPUT-'].update("Object is approaching")
 
     
 
