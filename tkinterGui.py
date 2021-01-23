@@ -5,8 +5,10 @@ from subprocess import call
 window = tk.Tk()
 window.title("Cycle Safe")
 window.geometry("600x600")
-prox_colour = "green"#default state
+prox_colour = "red"#default state
 prox_state = "All Clear!"#default state
+systext = "System Settings"
+LiDAR_data = "Insert LiDAR readings"
 
 #create a top frame and lower frame
 top_frame = tk.Frame(window,width=600,height=600,bg="green")#could change frame colour based on proximity
@@ -34,8 +36,8 @@ text1.pack()
 #create widgets for lower frame
 btn_shutdown = tk.Button(lower_frame,text="shutdown", background="teal")
 ##btn_shutdown = tk.Button(lower_frame,text="shutdown", command = shutDown)#shutdown preocedure for Pi
-text2 = tk.Label(lower_frame,text="lidarSensor")
-text3 = tk.Label(lower_frame,text="SystemSettings")
+text2 = tk.Label(lower_frame,text=LiDAR_data)
+text3 = tk.Label(lower_frame,text=systext)
 
 #arrange widgets inside lower frame
 btn_shutdown.grid(row=0,column=0)
@@ -45,7 +47,6 @@ text3.grid(row=0,column=2)
 #Shutdown function
 ##def shutDown():
 ##    call("sudo shutdown -h now", shell=True)
-
 
 window.mainloop()
 
