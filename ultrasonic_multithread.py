@@ -15,7 +15,8 @@ GPIO.setwarnings(True)
 
 def ultrasonic ():
  while(1):
-     global distance = 0
+     global distance 
+     distance = 0
      duration = 0
 
      #send trigger
@@ -40,7 +41,7 @@ def ultrasonic ():
       soundSpeed = 34300 # cm/s
       distance = duration * soundSpeed / 2
       distance = round(distance, 1)
-     time.sleep(0.2)
+     time.sleep(1)
  
 def main():
     x=threading.Thread(target=ultrasonic)
